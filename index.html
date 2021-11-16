@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+</head>
+
+<body>
+  <form>
+    <p>
+      <label for="movie">Enter Movie Name</label>
+      <input type="text" name="movie" id="movie">
+    </p>
+    <p>
+      <label for="movieInfo">Enter Information About the Movie</label>
+      <input type="movieInfo" name="movieInfo" id="movieInfo">
+    </p>
+    <button id="save">save</button>
+    <button id="delete">delete</button>
+  </form>
+  <div id="movies"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+
+    $('#save').click(event => {
+      event.preventDefault()
+
+      const userElem = $(`
+          <div>
+            <h4>${$('#movie').val()}</h4>
+            <h5>${$('#movieInfo').val()}</h5>
+            <hr>
+          </div>
+        `)
+
+      $('#movies').append(userElem)
+
+
+      $('#movie').val('')
+      $('#movieInfo').val('')
+
+      $('#reset').click(event => {
+        event.preventDefault()
+        $('#movie').html("");
+      })
+    })
+  </script>
+
+</body>
+
+</html>
